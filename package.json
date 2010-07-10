@@ -1,44 +1,60 @@
 {
-    "name": "jep4repl",
-    "description": "jetapck shell",
-    "version": "0.1",
-    "keywords": ["shell", "console", "jetpack"],
-    "!dependencies #standard_unsupported": {
-        "narwhal-xulrunner": ["0.1", "1.0"]
-    },
-    "dependencies": ["jetpack-core"],
-    "!main": "#nonstandard",
-    "main": "jep4repl/main",
-    "!author": "#nonstandard",
-    "author": "Irakli Gozalishvili (http://rfobic.wordpress.com/) <rfobic@gmail.com>",
-    "!maintainers #standard_unsupported": [
-        {
-            "name": "Irakli Gozalishvili",
-            "email": "rfobic@gmail.com",
-            "web": "http://rfobic.wordpress.com/"
-        }
-    ],
+    "name": "jep4repl", 
+    "license": "MPL 1.1/GPL 2.0", 
+    "!main": "#nonstandard", 
     "!contributors #standard_unsupported": [
         {
-            "name": "Irakli Gozalishvili",
-            "email": "rfobic@gmail.com",
-            "web": "http://rfobic.wordpress.com/"
+            "web": "http://rfobic.wordpress.com/", 
+            "name": "Irakli Gozalishvili", 
+            "email": "rfobic@gmail.com"
         }
-    ],
-    "bugs": { "web": "http://github.com/Gozala/jep4repl/issues/" },
-    "!license": "#nonstandard",
-    "license": "MPL 1.1/GPL 2.0",
-    "licenses": [
-        { "type": "GPL" },
-        { "type": "MPL" }
-    ],
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git://github.com/Gozala/jep4repl.git"
-        }
-    ],
+    ], 
     "directories": {
         "lib": "lib"
-    }
+    }, 
+    "author": "Irakli Gozalishvili (http://rfobic.wordpress.com/) <rfobic@gmail.com>", 
+    "repositories": [
+        {
+            "url": "git://github.com/Gozala/jep4repl.git", 
+            "type": "git"
+        }
+    ], 
+    "bugs": {
+        "web": "http://github.com/Gozala/jep4repl/issues/"
+    }, 
+    "!dependencies #standard_unsupported": {
+        "narwhal-xulrunner": [
+            "0.1", 
+            "1.0"
+        ]
+    }, 
+    "version": "0.1", 
+    "!maintainers #standard_unsupported": [
+        {
+            "web": "http://rfobic.wordpress.com/", 
+            "name": "Irakli Gozalishvili", 
+            "email": "rfobic@gmail.com"
+        }
+    ], 
+    "dependencies": [
+        "jetpack-core"
+    ], 
+    "keywords": [
+        "shell", 
+        "console", 
+        "jetpack"
+    ], 
+    "licenses": [
+        {
+            "type": "GPL"
+        }, 
+        {
+            "type": "MPL"
+        }
+    ], 
+    "main": "jep4repl/main", 
+    "!author": "#nonstandard", 
+    "id": "jid0-FDeb2KssajTwyw8k525dA9Xd0B4", 
+    "!license": "#nonstandard", 
+    "description": "jetapck shell"
 }
