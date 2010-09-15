@@ -1,60 +1,13 @@
-{
-    "name": "jep4repl", 
-    "license": "MPL 1.1/GPL 2.0", 
-    "!main": "#nonstandard", 
-    "!contributors #standard_unsupported": [
-        {
-            "web": "http://rfobic.wordpress.com/", 
-            "name": "Irakli Gozalishvili", 
-            "email": "rfobic@gmail.com"
-        }
-    ], 
-    "directories": {
-        "lib": "lib"
-    }, 
-    "author": "Irakli Gozalishvili (http://rfobic.wordpress.com/) <rfobic@gmail.com>", 
-    "repositories": [
-        {
-            "url": "git://github.com/Gozala/jep4repl.git", 
-            "type": "git"
-        }
-    ], 
-    "bugs": {
-        "web": "http://github.com/Gozala/jep4repl/issues/"
-    }, 
-    "!dependencies #standard_unsupported": {
-        "narwhal-xulrunner": [
-            "0.1", 
-            "1.0"
-        ]
-    }, 
-    "version": "0.1", 
-    "!maintainers #standard_unsupported": [
-        {
-            "web": "http://rfobic.wordpress.com/", 
-            "name": "Irakli Gozalishvili", 
-            "email": "rfobic@gmail.com"
-        }
-    ], 
-    "dependencies": [
-        "jetpack-core"
-    ], 
-    "keywords": [
-        "shell", 
-        "console", 
-        "jetpack"
-    ], 
-    "licenses": [
-        {
-            "type": "GPL"
-        }, 
-        {
-            "type": "MPL"
-        }
-    ], 
-    "main": "jep4repl/main", 
-    "!author": "#nonstandard", 
-    "id": "jid0-FDeb2KssajTwyw8k525dA9Xd0B4", 
-    "!license": "#nonstandard", 
-    "description": "jetapck shell"
+{ "name": "jep4repl"
+, "version": "1.1.0"
+, "description": "jetapck repl"
+, "keywords": [ "shell", "console", "jetpack" ]
+, "author": "Irakli Gozalishvili (http://jeditoolkit.com/)"
+
+, "dependencies": [ "jetpack-core" ] 
+, "main": "jep4repl"
+
+, "license": "MPL 1.1/GPL 2.0/LGPL 2.1"
+
+, "id": "jid0-fpraPAbOc8BBz9KL6THXlBb7ImE"
 }
