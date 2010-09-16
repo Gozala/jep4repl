@@ -1,13 +1,12 @@
-{ "name": "jep4repl"
-, "version": "1.1.0"
+{ "name": "repl"
+, "version": "2.0.0"
 , "description": "jetapck repl"
 , "keywords": [ "shell", "console", "jetpack" ]
 , "author": "Irakli Gozalishvili (http://jeditoolkit.com/)"
 
-, "dependencies": [ "jetpack-core" ] 
-, "main": "jep4repl"
+, "dependencies": [ "jetpack-core", "net" ] 
+, "main": "repl"
 
 , "license": "MPL 1.1/GPL 2.0/LGPL 2.1"
-
-, "id": "jid0-fpraPAbOc8BBz9KL6THXlBb7ImE"
+, "id": "jid0-MMwJGRIWZxjcG1sgGnFXQfHDXBA"
 }
