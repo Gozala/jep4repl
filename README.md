@@ -1,27 +1,21 @@
-jep4repl
-========
+jetpack repl
+============
 
-jep4repl provides a javascript shell with in the scope of a jetpack module 
-itself. This is a basic debugging tooling that can be very useful during
-development.
-
-Status
-------
-
-So far there is a lot of code and some of it is quite ugly and in some cases
-reinvents `jetpack-core` modules. That is  because jetpack was ported from 
-[narwhal-xulrunner] and most of the dependencies have been just copied over.
-On the good side it works as it used on [narwhal-xulrunner].
+Jetpack [repl] provides a javascript shell with in the scope of a jetpack
+module. This is a simple tool useful during development.
 
 Usage
 -----
 
 <pre class="console">
-    cd packages
-    git clone git://github.com/Gozala/jep4repl.git
-    cd jep4repl
-    cfx run -a firefox
-    rlwrap telnet localhost 4242
+  cd packages
+  git clone git://github.com/Gozala/jep4repl.git
+  cd jep4repl
+  cfx run -a firefox
+  # to have access to the modules in your package
+  # cfx run -a firefox --extra-packages=myPackage 
+  rlwrap telnet localhost 4242
 </pre>
 
-[narwhal-xulrunner]: http://github.com/gozala/narwhal-xulrunner
+[repl]:http://en.wikipedia.org/wiki/REPL
+
