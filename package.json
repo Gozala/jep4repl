@@ -4,7 +4,6 @@
 , "keywords": [ "shell", "console", "jetpack" ]
 , "author": "Irakli Gozalishvili (http://jeditoolkit.com/)"
 
-, "dependencies": [ "net" ]
 , "main": "repl"
 
 , "license": "MPL 1.1/GPL 2.0/LGPL 2.1"
