@@ -1,7 +1,7 @@
 "use strict";
 
 const net = require('net/net')
-  ,   { Shell } = require('./repl/shell')
+  ,   { Shell } = require('./shell')
   ,   { Cc, Ci } = require('chrome')
 
 exports.main = function main(options, callbacks) {
