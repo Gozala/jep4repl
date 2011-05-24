@@ -7,15 +7,13 @@ module. This is a simple tool useful during development.
 Usage
 -----
 
-<pre class="console">
   cd packages
   git clone git://github.com/Gozala/jep4repl.git
   cd jep4repl
-  cfx run -a firefox
+  cfx run
   # to have access to the modules in your package
-  # cfx run -a firefox --extra-packages=myPackage 
+  # cfx run --extra-packages=myPackage 
   rlwrap telnet localhost 4242
-</pre>
 
 [repl]:http://en.wikipedia.org/wiki/REPL
 
