@@ -4,7 +4,7 @@
   "version": "3.0.1",
   "description": "jetapck repl",
   "keywords": ["shell", "console", "jetpack"],
-  "author": "Irakli Gozalishvili (http://jeditoolkit.com/)",
+  "author": "Irakli Gozalishvili <rfobic@gmail.com> (http://jeditoolkit.com/)",
   "main": "./repl.js",
   "licenses": [{
     "type": "MIT",
