@@ -94,6 +94,7 @@ function Shell(stream) {
     packaging: packaging,
     rootPaths: packaging.options.rootPaths,
     jetpackID: packaging.options.jetpackID,
+    uriPrefix: packaging.options.uriPrefix,
     metadata: packaging.options.metadata,
     name: packaging.options.name
   }).findSandboxForModule('repl/sandbox')
