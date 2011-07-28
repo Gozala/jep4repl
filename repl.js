@@ -10,7 +10,7 @@ const net = require('net/net')
 const { Shell } = require('./shell')
 const { Cc, Ci } = require('chrome')
 
-exports.main = function main(options, callbacks) {
+exports.repl = function repl(options, callbacks) {
   let server = net.createServer(function (stream) {
     stream.setEncoding('utf8')
     stream.on('close', function close() {
@@ -24,3 +24,4 @@ exports.main = function main(options, callbacks) {
   server.on('error', function (e) console.error(e.message, e.stack))
   server.listen(4242)
 }
+exports.repl()

@@ -6,6 +6,9 @@
   "keywords": ["shell", "console", "jetpack"],
   "author": "Irakli Gozalishvili <rfobic@gmail.com> (http://jeditoolkit.com/)",
   "main": "./repl.js",
+  "dependencies": [
+    "net"
+  ],
   "licenses": [{
     "type": "MIT",
     "url": "http://jeditoolkit.com/LICENSE"
