@@ -6,7 +6,7 @@
 
 "use strict";
 
-const { Loader } = require('api-utils/cuddlefish')
+const { Cc, Ci } = require('chrome');
 
 /* Narwhal shell module */
 
@@ -88,7 +88,27 @@ function represent(thing) {
 function Shell(stream) {
   let buffer = '', ps = NORMAL_PS, result, error
 
-  let sandbox = new Loader({
+  let loader = Cc['@mozilla.org/jetpack/module-loader;1'].
+               createInstance(Ci.nsISupports).wrappedJSObject.
+               new(packaging.options);
+  loader.globals = Object.create(require('api-utils/@globals'), {
+    packaging: { value: packaging },
+    _: { get: function () result },
+    __: { get: function () error },
+    print: { value: function () print.apply(null, arguments) }
+  });
+  loader.main('repl/sandbox');
+
+  let uri = Object.keys(loader.sandboxes).filter(function(uri) {
+    return uri.substr(-1 * 'sandbox.js'.length) === 'sandbox.js'
+  }).map(function(uri) uri)[0]
+  let module = loader.modules[uri];
+  let sandbox = loader.sandboxes[uri];
+  sandbox.sandbox.module = module;
+  sandbox.sandbox.require = module.exports.require;
+  sandbox.sandbox.exports = module.exports;
+  /*
+  let sandbox = require('api-utils/cuddlefish').Loader({
     console: console,
     globals: Object.create(globals),
     packaging: packaging,
@@ -111,6 +131,7 @@ function Shell(stream) {
       }
     }
   })
+  */
 
   function print(text) stream.write(text + '\n')
 
