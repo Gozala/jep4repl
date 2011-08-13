@@ -1,29 +1,37 @@
 # History #
 
+## 3.0.3 / 2011-08-13 ##
+
+  - Stop modifying exports on connection as they are frozen.
+
+## 3.0.2 / 2011-07-28 ##
+
+  - Adding dependency on "net" package in the package descriptor.
+
 ## 3.0.1 / 2011-06-12 ##
 
-- Jetpack compatibility changes.
-- Adding changelog.
+  - Jetpack compatibility changes.
+  - Adding changelog.
 
 ## 3.0.0 / 2011-05-24 ##
 
- - Simplified package layout.
- - Compatibility changes with jetpack.
- - Bug fixes.
+  - Simplified package layout.
+  - Compatibility changes with jetpack.
+  - Bug fixes.
 
 ## 2.0.2 / 2011-03-10 ##
 
- - Getting rid of annoying warnings in console.
+  - Getting rid of annoying warnings in console.
 
 ## 2.0.1 / 2010-12-16 ##
 
- - Bug fixing.
- - Closing app when connected shell client ends connection.
+  - Bug fixing.
+  - Closing app when connected shell client ends connection.
 
 ## 2.0.0 / 2010-09-17 ##
 
- - Making a proper integration with jetpack, by replacing narwhal modules with
-   equivalent jetpack apis.
+  - Making a proper integration with jetpack, by replacing narwhal modules with
+    equivalent jetpack apis.
 
 ## 1.1.0 / 2010-09-15 ##
 
