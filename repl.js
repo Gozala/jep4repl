@@ -19,7 +19,6 @@ exports.repl = function repl(options, callbacks) {
     })
     stream.on('error', function (e) console.error(e.message, e.stack))
     Shell(stream)
-    exports.stream = stream;
   })
   server.on('error', function (e) console.error(e.message, e.stack))
   server.listen(4242)
