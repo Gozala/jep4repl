@@ -7,6 +7,8 @@
 "use strict";
 
 const { Cc, Ci } = require('chrome');
+const { Loader } = require('@loader');
+const options = require('@packaging');
 
 /* Narwhal shell module */
 
@@ -21,7 +23,7 @@ function handleError(e) {
   let result = '', realException = e.cause || e
 
   if (realException) {
-    result += 'Details:\n'
+    result += e + '\nDetails:\n'
     for (let key in realException) {
       let content = '' + realException[key]
       if (content.indexOf('\n') != -1)
@@ -87,8 +89,9 @@ function represent(thing) {
 
 function Shell(stream) {
   let buffer = '', ps = NORMAL_PS, result, error
-  let loader = require('parent-loader');
-  require('./sandbox');
+  let loader = Loader.new(options);
+  let sandbox = loader.main('repl/sandbox');
+  let line = 1;
 
   let uri = Object.keys(loader.sandboxes).filter(function(uri) {
     return uri.substr(-1 * 'sandbox.js'.length) === 'sandbox.js'
@@ -104,32 +107,6 @@ function Shell(stream) {
     print: { value: function () print.apply(null, arguments) }
   });
 
-  /*
-  let sandbox = require('api-utils/cuddlefish').Loader({
-    console: console,
-    globals: Object.create(globals),
-    packaging: packaging,
-    rootPaths: packaging.options.rootPaths,
-    jetpackID: packaging.options.jetpackID,
-    uriPrefix: packaging.options.uriPrefix,
-    metadata: packaging.options.metadata,
-    name: packaging.options.name
-  }).findSandboxForModule('repl/sandbox')
-  Object.defineProperties(sandbox._sandbox, {
-    _: {
-      get: function () result
-    },
-    __: {
-      get: function () error
-    },
-    print: {
-      value: function () {
-        print.apply(null, arguments)
-      }
-    }
-  })
-  */
-
   function print(text) stream.write(text + '\n')
 
   function repl() stream.write(Array.slice(arguments).join('\n' + ps) + '\n')
@@ -142,7 +119,7 @@ function Shell(stream) {
     let isStatement = STATEMENT_MATCH.test(data)
     buffer += data
     try {
-      result = sandbox.evaluate(buffer)
+      result = sandbox.evaluate(buffer, '@repl')
       if (undefined !== result) repl(represent(result))
       buffer = ''
       ps = NORMAL_PS
