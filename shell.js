@@ -16,8 +16,7 @@ const EMPTY_MATCH = /^\s*$/,
       STATEMENT_MATCH = /^\s*;\s*$/,
       NORMAL_PS = 'js> ',
       UNFINISHED_PS = '   > ',
-      FIN = String.fromCharCode(65533, 65533, 65533, 65533, 6),
-      globals = { packaging: packaging }
+      FIN = String.fromCharCode(65533, 65533, 65533, 65533, 6)
 
 function handleError(e) {
   let result = '', realException = e.cause || e
