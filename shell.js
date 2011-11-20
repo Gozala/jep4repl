@@ -89,18 +89,14 @@ function represent(thing) {
 function Shell(stream) {
   let buffer = '', ps = NORMAL_PS, result, error
   let loader = Loader.new(options);
-  let sandbox = loader.main('repl/sandbox');
+  let sandbox = Loader.require.call(loader, module.uri, './sandbox');
   let line = 1;
 
   let uri = Object.keys(loader.sandboxes).filter(function(uri) {
     return uri.substr(-1 * 'sandbox.js'.length) === 'sandbox.js'
   }).map(function(uri) uri)[0]
-  let module = loader.modules[uri];
   let sandbox = loader.sandboxes[uri];
   Object.defineProperties(sandbox.sandbox, {
-    module: { value: module },
-    require: { value: module.exports.require },
-    exports: { value: module.exports },
     _: { get: function () result },
     __: { get: function () error },
     print: { value: function () print.apply(null, arguments) }
