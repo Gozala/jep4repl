@@ -9,6 +9,7 @@
 const { Cc, Ci } = require('chrome');
 const { Loader } = require('@loader');
 const options = require('@packaging');
+require('./sandbox');
 
 /* Narwhal shell module */
 
@@ -99,6 +100,32 @@ function Shell(stream) {
   Object.defineProperties(sandbox.sandbox, {
     _: { get: function () result },
     __: { get: function () error },
+    require: { value: function require(id) {
+      let parts = id.split('/')
+      let uri = id[0] === '/' ? 'file://' + id :
+                options.uriPrefix + parts.shift() + '-lib/' + parts.join('/')
+      if (uri.slice(-3) !== '.js') uri = uri + '.js'
+
+      console.log(uri)
+
+      if (uri in loader.modules) {
+        module = loader.modules[uri];
+      } else {
+        module = loader.modules[uri] = {
+          uri: uri,
+          id: id,
+          exports: {},
+          setExports: function setExports(exports) {
+            this.exports = exports;
+          }
+        }
+        loader.load(module)
+        Object.freeze(module)
+      }
+
+      if (typeof(module) === 'function') module = module(this, requirer)
+      return module.exports
+    }},
     print: { value: function () print.apply(null, arguments) }
   });
 
