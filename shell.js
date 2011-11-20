@@ -105,8 +105,7 @@ function Shell(stream) {
       let uri = id[0] === '/' ? 'file://' + id :
                 options.uriPrefix + parts.shift() + '-lib/' + parts.join('/')
       if (uri.slice(-3) !== '.js') uri = uri + '.js'
-
-      console.log(uri)
+      if (id in loader.modules) uri = id
 
       if (uri in loader.modules) {
         module = loader.modules[uri];
