@@ -90,8 +90,9 @@ function represent(thing) {
 function Shell(stream) {
   let buffer = '', ps = NORMAL_PS, result, error
   let loader = Loader.new(options);
-  let sandbox = Loader.require.call(loader, module.uri, './sandbox');
+  let sandbox = Loader.require.call(loader, module.path, './sandbox');
   let line = 1;
+  let root = 'resource://' + options.unique_prefix + '/';
 
   let uri = Object.keys(loader.sandboxes).filter(function(uri) {
     return uri.substr(-1 * 'sandbox.js'.length) === 'sandbox.js'
@@ -102,16 +103,17 @@ function Shell(stream) {
     __: { get: function () error },
     require: { value: function require(id) {
       let parts = id.split('/')
-      let uri = id[0] === '/' ? 'file://' + id :
-                options.uriPrefix + parts.shift() + '-lib/' + parts.join('/')
-      if (uri.slice(-3) !== '.js') uri = uri + '.js'
-      if (id in loader.modules) uri = id
+      let path = id[0] === '/' ? 'file://' + id :
+                [ parts.shift(), 'lib' ].concat(parts).join('/')
+      if (path.slice(-3) !== '.js') path = path + '.js'
+      if (id in loader.modules) path = id
 
-      if (uri in loader.modules) {
-        module = loader.modules[uri];
+      if (path in loader.modules) {
+        module = loader.modules[path];
       } else {
-        module = loader.modules[uri] = {
-          uri: uri,
+        module = loader.modules[path] = {
+          uri: root + path,
+          path: path,
           id: id,
           exports: {},
           setExports: function setExports(exports) {
